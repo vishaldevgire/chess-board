@@ -13,26 +13,35 @@ fun main(args: Array<String>) {
     )
 
 	if (args.size < 2) {
-		println("Usage: <jar> <King|Queen|Bishop|Horse|Rook|Pawn> <board_position>")
-		println("  -example: <jar> King D4")
+		printUsage()
 		return
 	}
 
 	val pieceName = args[0]
 	val position = args[1]
+	var pieceType = PieceType.WHITE
+
+	if (args.size > 2) {
+		pieceType = if (args[2] == "W") PieceType.WHITE else PieceType.BLACK
+	}
 
 	if (factory[pieceName] == null) {
 		println("Error: Invalid chess piece specified.")
-		println("Usage: <jar> <King|Queen|Bishop|Horse|Rook|Pawn> <board_position>")
-		println("  -example: <jar> King D4")
+		printUsage()
 		return
 	}
 
 	val chessboard = Chessboard()
 	val piece = factory[pieceName]!!.invoke()
 
-	chessboard.place(position, piece, PieceType.WHITE)
+	chessboard.place(position, piece, pieceType)
 
 	println(piece.moves())
+}
+
+fun printUsage() {
+	println("Usage: <jar> <King|Queen|Bishop|Horse|Rook|Pawn> <board_position> [W|B]")
+	println("  -example: <jar> King D4")
+	println("  -example: <jar> Pawn A4 B")
 }
 
