@@ -31,7 +31,7 @@ fun main(args: Array<String>) {
 	val chessboard = Chessboard()
 	val piece = factory[pieceName]!!.invoke()
 
-	chessboard.place(position, piece)
+	chessboard.place(position, piece, PieceType.WHITE)
 
 	println(piece.moves())
 }
