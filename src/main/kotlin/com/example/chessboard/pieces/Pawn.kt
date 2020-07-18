@@ -11,7 +11,11 @@ class Pawn : Piece() {
         val position = chessboard!!.getPosition(this).get()
         val moves = mutableListOf<Position>()
 
-        moves.add(Position(position.row - 1, position.col))
+        if (this.type == PieceType.WHITE) {
+            moves.add(Position(position.row - 1, position.col))
+        } else {
+            moves.add(Position(position.row + 1, position.col))
+        }
 
         return moves.filter { it.isValid() }.map { it.toPositionCode() }
     }

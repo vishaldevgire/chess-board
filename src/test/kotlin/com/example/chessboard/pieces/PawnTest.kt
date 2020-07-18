@@ -17,26 +17,56 @@ class PawnTest {
     }
 
     @Test
-    fun `should return valid list of moves when placed on chessboard`() {
+    fun `should return valid list of moves when a white pawn is placed on chessboard`() {
         val chessboard = mockk<Chessboard> {
             every { getPosition(any()) } returns Optional.of(Position.fromPositionCode("A1"))
         }
 
         val pawn = Pawn().apply {
             this.chessboard = chessboard
+            this.type = PieceType.WHITE
         }
 
         Assertions.assertThat(pawn.moves()).isEqualTo(listOf("A2"))
     }
 
     @Test
-    fun `should return empty list of moves when placed on last row of chessboard`() {
+    fun `should return valid list of moves when a black pawn is placed on chessboard`() {
+        val chessboard = mockk<Chessboard> {
+            every { getPosition(any()) } returns Optional.of(Position.fromPositionCode("B3"))
+        }
+
+        val pawn = Pawn().apply {
+            this.chessboard = chessboard
+            this.type = PieceType.BLACK
+        }
+
+        Assertions.assertThat(pawn.moves()).isEqualTo(listOf("B2"))
+    }
+
+    @Test
+    fun `should return empty list of moves when a white pawn is placed on last row of chessboard`() {
         val chessboard = mockk<Chessboard> {
             every { getPosition(any()) } returns Optional.of(Position.fromPositionCode("H8"))
         }
 
         val pawn = Pawn().apply {
             this.chessboard = chessboard
+            this.type = PieceType.WHITE
+        }
+
+        Assertions.assertThat(pawn.moves()).isEmpty()
+    }
+
+    @Test
+    fun `should return empty list of moves when a black pawn is placed on last row of chessboard`() {
+        val chessboard = mockk<Chessboard> {
+            every { getPosition(any()) } returns Optional.of(Position.fromPositionCode("A1"))
+        }
+
+        val pawn = Pawn().apply {
+            this.chessboard = chessboard
+            this.type = PieceType.BLACK
         }
 
         Assertions.assertThat(pawn.moves()).isEmpty()
