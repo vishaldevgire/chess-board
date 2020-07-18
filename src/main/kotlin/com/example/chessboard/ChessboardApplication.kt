@@ -1,11 +1,12 @@
 package com.example.chessboard
 
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
+import com.example.chessboard.pieces.Knight
 
-@SpringBootApplication
-class ChessboardApplication
+fun main() {
+	val chessboard = Chessboard()
+	val knight = Knight()
 
-fun main(args: Array<String>) {
-	runApplication<ChessboardApplication>(*args)
+	chessboard.place("d5", knight)
+
+	print("Moves: ${knight.moves()}")
 }

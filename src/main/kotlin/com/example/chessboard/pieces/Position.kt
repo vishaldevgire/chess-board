@@ -1,12 +1,13 @@
 package com.example.chessboard.pieces
 
-data class Position(val x: Int, val y: Int) {
-    fun isValid() = x > -1 && x < 8 && y > -1 && y < 8
-    fun toPositionCode(): String {
-        val xChar:Int = 8 - x
-        val yChar:Char = (y + 'a'.toInt()).toChar()
+data class Position(val row: Int, val col: Int) {
+    fun isValid() = row > -1 && row < 8 && col > -1 && col < 8
 
-        return "$yChar$xChar".toUpperCase()
+    fun toPositionCode(): String {
+        val rowChar:Int = 8 - row
+        val colDigit:Char = (col + 'a'.toInt()).toChar()
+
+        return "$colDigit$rowChar".toUpperCase()
     }
 
     override fun equals(other: Any?): Boolean {
@@ -15,15 +16,15 @@ data class Position(val x: Int, val y: Int) {
 
         other as Position
 
-        if (x != other.x) return false
-        if (y != other.y) return false
+        if (row != other.row) return false
+        if (col != other.col) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var result = x
-        result = 31 * result + y
+        var result = row
+        result = 31 * result + col
         return result
     }
 
