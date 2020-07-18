@@ -10,7 +10,7 @@ import java.util.*
 class KnightTest {
 
     @Test
-    fun `should return emptyList if knight is not places on any chessboard`() {
+    fun `should return emptyList if knight is not placed on any chessboard`() {
         val knight = Knight()
 
         assertThat(knight.moves()).isEqualTo(emptyList<String>())

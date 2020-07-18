@@ -10,7 +10,7 @@ import java.util.*
 
 class BishopTest {
     @Test
-    fun `should return emptyList if bishop is not places on any chessboard`() {
+    fun `should return emptyList if bishop is not placed on any chessboard`() {
         val bishop = Bishop()
 
         assertThat(bishop.moves()).isEqualTo(emptyList<String>())

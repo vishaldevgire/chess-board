@@ -10,7 +10,7 @@ import java.util.*
 
 class RookTest {
     @Test
-    fun `should return emptyList if rook is not places on any chessboard`() {
+    fun `should return emptyList if rook is not placed on any chessboard`() {
         val rook = Rook()
 
         Assertions.assertThat(rook.moves()).isEqualTo(emptyList<String>())
