@@ -3,7 +3,7 @@ package com.example.chessboard
 import com.example.chessboard.pieces.*
 
 fun main(args: Array<String>) {
-    val factory = mapOf<String, () -> Piece>(
+    val pieceFactory = mapOf<String, () -> Piece>(
             "King"   to { King() },
             "Horse"  to { Knight() },
             "Pawn"   to { Pawn() },
@@ -25,14 +25,14 @@ fun main(args: Array<String>) {
 		pieceType = if (args[2] == "W") PieceType.WHITE else PieceType.BLACK
 	}
 
-	if (factory[pieceName] == null) {
+	if (pieceFactory[pieceName] == null) {
 		println("Error: Invalid chess piece specified.")
 		printUsage()
 		return
 	}
 
 	val chessboard = Chessboard()
-	val piece = factory[pieceName]!!.invoke()
+	val piece = pieceFactory[pieceName]!!.invoke()
 
 	chessboard.place(position, piece, pieceType)
 
