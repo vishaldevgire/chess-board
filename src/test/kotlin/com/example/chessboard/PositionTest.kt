@@ -1,6 +1,5 @@
 package com.example.chessboard
 
-import com.example.chessboard.pieces.Position
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

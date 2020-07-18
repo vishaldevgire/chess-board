@@ -1,11 +1,6 @@
 package com.example.chessboard
 
 import com.example.chessboard.pieces.Knight
-import com.example.chessboard.pieces.Piece
-import com.example.chessboard.pieces.Position
-import io.mockk.Runs
-import io.mockk.every
-import io.mockk.mockk
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.util.*

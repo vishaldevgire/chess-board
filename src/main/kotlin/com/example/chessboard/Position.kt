@@ -1,4 +1,4 @@
-package com.example.chessboard.pieces
+package com.example.chessboard
 
 data class Position(val row: Int, val col: Int) {
     fun isValid() = row > -1 && row < 8 && col > -1 && col < 8

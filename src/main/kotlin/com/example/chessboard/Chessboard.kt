@@ -1,7 +1,6 @@
 package com.example.chessboard
 
 import com.example.chessboard.pieces.Piece
-import com.example.chessboard.pieces.Position
 import java.util.*
 
 class Chessboard {

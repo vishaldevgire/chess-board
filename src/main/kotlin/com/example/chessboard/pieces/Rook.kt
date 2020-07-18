@@ -1,5 +1,7 @@
 package com.example.chessboard.pieces
 
+import com.example.chessboard.Position
+
 class Rook : Piece() {
     override fun moves(): List<String> {
         if (chessboard == null) {

@@ -1,9 +1,9 @@
 package com.example.chessboard.pieces
 
 import com.example.chessboard.Chessboard
+import com.example.chessboard.Position
 import io.mockk.every
 import io.mockk.mockk
-import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.util.*
